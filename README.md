@@ -1,1 +1,3 @@
-# PrOjEcT
+SPI slave for TIVA C TM4C123GXL.
+
+UART transmit for TIVA C TM4123GXL.
