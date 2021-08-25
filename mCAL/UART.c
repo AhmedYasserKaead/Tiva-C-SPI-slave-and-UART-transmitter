@@ -1,6 +1,7 @@
 #include "UART.h"
 #include "C:\Users\ayaser\Documents\TM4C123GH6PM.h"
 #include "C:\Users\ayaser\workspace_v10\Testato\mCAL\Timer.h"
+#include "C:\Users\ayaser\workspace_v10\Testato\HAL\LED_Control.h"
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -22,15 +23,15 @@ void UART_transmit()
     GPIO_PORTB_AMSEL_R = 0x00;
 }
 void UART_TX(){
-    unsigned long SW1,x;
-    SW1 = GPIO_PORTF_DATA_R & 0x10;
-    if(SW1 == 0x10){
-        x = 0x00;
+    unsigned long x=0, SW1=0;
+    while(SW1 == 0x00)
+    {
+        x=ASCII();
+          UART1_DR_R = x;
+          SW1 = 69;
+
     }
-    else if(SW1 == 0x00){
-        x = 0x01;
-    }
+    x = 0x10;
     while((UART1_FR_R & (1<<5)) != 0);
     UART1_DR_R = x;
 }
-
