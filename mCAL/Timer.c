@@ -1,7 +1,7 @@
 #include "Timer.h"
 #include "C:\Users\ayaser\Documents\TM4C123GH6PM.h"
 #define DELAY_FOR_ONE_SECOND                          (160000000 * 1) - 1
-#define DELAY_VALUE                         1000000  // found this delay code on a website and used it down below in the code
+#define DELAY_VALUE                         9000000  // found this delay code on a website and used it down below in the code
 
 
 void delay(int n)
