@@ -27,14 +27,15 @@ void SPI_RX()
 {
     if(SSI0_DR_R == 'W')
     {
-        GPIO_PORTF_DATA_R ^= 0x0E;       // If 'W' is received, turn on the White  LED
-      //  SysCtlDelay(10000000);
-        delay(1);
-      //  Delay();
-    }
-    else{
+        GPIO_PORTF_DATA_R |= 0x0E;       /* If 'W' is received, turn on the White  LED */
+      /* SysCtlDelay(10000000); */
+      /* delay(1); */
+        Delay();
         GPIO_PORTF_DATA_R &= ~0x0E;
     }
+    /* else{
+        GPIO_PORTF_DATA_R &= ~0x0E;
+    } */
     //else if (SSI0_DR_R == 'G'){GPIO_PORTF_DATA_R |= 0x8;} // If 'G' is received, turn on the green LED
   //  else if (SSI0_DR_R == 'B'){GPIO_PORTF_DATA_R |= 0x4;} // If 'B' is received, turn on the blue LED
 
