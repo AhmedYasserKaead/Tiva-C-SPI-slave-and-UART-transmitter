@@ -5,11 +5,12 @@
 #include "C:\Users\ayaser\CLionProjects\ProJecT\GP.h"
 #include <stdint.h>
 #include <stdlib.h>
+#include "C:\Users\amostafa\workspace_v10\FINAL PROJECT\mylib.h"
 
 void UART_transmit()
 {
     SYSCTL_RCGCUART_R |= 0x02;
-    SYSCTL_RCGCGPIO_R |= 0x02;
+    GPIO_CLOCK |= 0x02;
 
     UART1_CTL_R &= ~0x01;
     UART1_IBRD_R = 104;
