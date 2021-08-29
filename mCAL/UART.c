@@ -2,7 +2,7 @@
 #include "C:\Users\ayaser\Documents\TM4C123GH6PM.h"
 #include "C:\Users\ayaser\workspace_v10\Testato\mCAL\Timer.h"
 #include "C:\Users\ayaser\workspace_v10\Testato\HAL\LED_Control.h"
-
+#include "C:\Users\ayaser\CLionProjects\ProJecT\GP.h"
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -17,10 +17,10 @@ void UART_transmit()
     UART1_LCRH_R |= 0x70;
     UART1_CTL_R |= 0x301;
 
-    GPIO_PORTB_AFSEL_R |= 0x2;
-    GPIO_PORTB_DEN_R |= 0x2;
-    GPIO_PORTB_PCTL_R |= 0x10;
-    GPIO_PORTB_AMSEL_R = 0x00;
+    PTB_AFSEL |= 0x2;
+    PTB_DEN |= 0x2;
+    PTB_PCTL |= 0x10;
+    PTB_AMSEL = 0x00;
 }
 void UART_TX(){
     unsigned long x=0, SW1=0;
