@@ -1,16 +1,17 @@
 #include "SPI.h"
 #include "C:\Users\ayaser\Documents\TM4C123GH6PM.h"
 #include "C:\Users\ayaser\workspace_v10\Testato\mCAL\Timer.h"
+#include "C:\Users\onasser\Desktop\PORTAheader.h"
 
 void SPI_slave()
 {
     SYSCTL_RCGCSSI_R |= 0x1; // Enable and provide a clock to SPI0
     SYSCTL_RCGCGPIO_R |= 0x21; // Enable and provide a clock to GPIO PortA and PortF
 
-    GPIO_PORTA_AFSEL_R |= 0x3C; // Enable alternate functions on PA2, PA3, PA4, PA5
-    GPIO_PORTA_PCTL_R |= 0x222200; // Assign SPI signals to PA2, PA3, PA4, PA5
-    GPIO_PORTA_DEN_R |= 0x3C; // Enable digital functions for PA2, PA3, PA4, PA5
-    GPIO_PORTA_DIR_R &= ~0x8; // Set PA3 as input
+    AFSEL_A |= 0x3C; // Enable alternate functions on PA2, PA3, PA4, PA5
+    PCTL_A |= 0x222200; // Assign SPI signals to PA2, PA3, PA4, PA5
+    DEN_A |= 0x3C; // Enable digital functions for PA2, PA3, PA4, PA5
+    DIR_A &= ~0x8; // Set PA3 as input
 
     SSI0_CR1_R = 0x4; // Disable SPI and configure it as a slave
     SSI0_CC_R = 0x0; // Select the SPI Baud Clock Source as system clock
